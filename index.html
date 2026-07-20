@@ -365,10 +365,40 @@
     </div>
   </section>
 
-  <!-- table -->
+  <!-- rebalance -->
   <section class="block">
     <div class="sec-head">
       <span class="num">04</span>
+      <h2>If DUPR drew the lines: rebalancing the ladder</h2>
+      <p>Each level's suggested DUPR band runs to the midpoint between its median and its neighbors' — computed live
+        from the players passing the filters. The lists call out players sitting past those cut lines, a rung or more
+        into a neighboring level's territory. It's a screen, not a verdict: DUPR is a snapshot and placement stays a
+        coach's call.</p>
+    </div>
+    <div class="card">
+      <div class="legend" id="leg4"></div>
+      <div class="figure-wrap"><svg class="chart" id="bands" viewBox="0 0 720 190" role="img"
+        aria-label="Suggested DUPR band for each Apex level"></svg></div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="callout">
+        <h3><span class="chip up">▲ up</span> <span id="uphead">Playing above their band</span></h3>
+        <p class="sub">DUPR already inside a higher level's band — candidates for a promotion look.</p>
+        <ul class="players" id="moveup"></ul>
+      </div>
+      <div class="callout">
+        <h3><span class="chip dn">▼ down</span> <span id="dnhead">Playing below their band</span></h3>
+        <p class="sub">DUPR sitting in a lower level's band — may find smoother games a rung down.</p>
+        <ul class="players" id="movedown"></ul>
+      </div>
+    </div>
+    <div class="insight" id="insight4"></div>
+  </section>
+
+  <!-- table -->
+  <section class="block">
+    <div class="sec-head">
+      <span class="num">05</span>
       <h2>Every player in view</h2>
       <p>The full matched set behind the charts, honoring the filters above. "vs level avg" is DUPR minus the average of
         others at the same Apex level. Click a column to sort.</p>
@@ -490,6 +520,7 @@
     renderScatter(lad, present, ord, reg);
     renderBoxes(bandStats);
     renderOutliers(lad);
+    renderRebalance(lad, bandStats, reg);
     renderInsights(reg, bandStats);
     renderTable(all);
     renderFoot(all);
@@ -650,6 +681,76 @@
     }).join('');
     el('under').innerHTML=side(true);
     el('over').innerHTML=side(false);
+  }
+
+  function renderRebalance(lad, bandStats, reg){
+    const svg=el('bands'); svg.innerHTML='';
+    const present=bandStats.filter(b=>b.st);
+    const upUl=el('moveup'), dnUl=el('movedown');
+    if(present.length<2 || !reg){
+      upUl.innerHTML=''; dnUl.innerHTML=''; el('leg4').innerHTML='';
+      el('uphead').textContent='Playing above their band'; el('dnhead').textContent='Playing below their band';
+      el('insight4').innerHTML=`<span class="mk">—</span><p>Not enough players pass the current filters to audit the ladder.</p>`;
+      return;
+    }
+    const lvls=present.map(b=>b.v), meds=present.map(b=>b.st.med);
+    const bounds=meds.slice(0,-1).map((m,i)=>(m+meds[i+1])/2);
+    const medOf={}; present.forEach(b=>medOf[b.v]=b.st.med);
+
+    // --- band strip: suggested DUPR range per level ---
+    const W=720,H=190, m={t:34,r:18,b:64,l:46};
+    const iw=W-m.l-m.r, bh=H-m.t-m.b;
+    const lo=Math.floor((meds[0]-0.4)*10)/10, hi=Math.ceil((meds[meds.length-1]+0.4)*10)/10;
+    const X=v=>m.l+(v-lo)/(hi-lo)*iw;
+    const edges=[lo,...bounds,hi];
+    present.forEach((b,i)=>{
+      const x0=X(edges[i]), x1=X(edges[i+1]);
+      svg.appendChild(mk('rect',{x:x0,y:m.t,width:x1-x0,height:bh,
+        fill:i%2?cssv('--court-wash'):'transparent',stroke:cssv('--hair')}));
+      const tx=mk('text',{x:(x0+x1)/2,y:m.t-10,'text-anchor':'middle',class:'a-lbl'}); tx.textContent=b.lbl; svg.appendChild(tx);
+      const mx=X(b.st.med);
+      svg.appendChild(mk('line',{x1:mx,y1:m.t+6,x2:mx,y2:m.t+bh-6,
+        stroke:cssv('--court-deep'),'stroke-width':2.5,'stroke-linecap':'round'}));
+    });
+    bounds.forEach(v=>{
+      const x=X(v);
+      const tx=mk('text',{x,y:m.t+bh+16,'text-anchor':'middle'}); tx.textContent=v.toFixed(2); svg.appendChild(tx);
+    });
+    const xt=mk('text',{x:m.l+iw/2,y:H-10,'text-anchor':'middle',class:'a-title'});
+    xt.textContent='Suggested DUPR band per level · cut at the midpoint between neighboring medians'; svg.appendChild(xt);
+    el('leg4').innerHTML=`
+      <span class="it"><span class="swline" style="border-color:var(--court-deep)"></span>Level median DUPR</span>
+      <span class="it"><span class="sw" style="background:var(--court-wash);border:1px solid var(--hair)"></span>Suggested band</span>`;
+
+    // --- who sits past the cut lines ---
+    const implied=du=>{ for(let i=0;i<bounds.length;i++){ if(du<bounds[i]) return lvls[i]; } return lvls[lvls.length-1]; };
+    const moves=[];
+    for(const d of lad){
+      const iv=implied(d.dupr), gap=lvls.indexOf(iv)-lvls.indexOf(d.apex);
+      if(Math.abs(gap)>=2 || (Math.abs(gap)===1 && Math.abs(d.dupr-medOf[d.apex])>0.28)) moves.push({...d, iv, gap});
+    }
+    const ups=moves.filter(v=>v.gap>0).sort((a,b)=>b.dupr-a.dupr);
+    const downs=moves.filter(v=>v.gap<0).sort((a,b)=>a.dupr-b.dupr);
+    const row=d=>`<li>
+        <span class="pn">${esc(d.name)}</span>
+        <span class="pmeta">${lblFor(d.apex)} → ${lblFor(d.iv)} · rel ${Math.round(d.rel)}%</span>
+        <span class="pdel ${d.gap>0?'pos':'neg'}">${fmt(d.dupr,2)}</span>
+      </li>`;
+    el('uphead').textContent=`Playing above their band (${ups.length})`;
+    el('dnhead').textContent=`Playing below their band (${downs.length})`;
+    upUl.innerHTML=ups.map(row).join('') || '<li><span class="pmeta">No one — the cuts are clean here.</span></li>';
+    dnUl.innerHTML=downs.map(row).join('') || '<li><span class="pmeta">No one — the cuts are clean here.</span></li>';
+
+    // --- structural read: rung width vs within-level spread ---
+    const sdOf=g=>{ const a=g.map(d=>d.dupr), mu=a.reduce((x,y)=>x+y,0)/a.length;
+      return Math.sqrt(a.reduce((s,x)=>s+(x-mu)**2,0)/(a.length-1)); };
+    const sds=present.filter(b=>b.grp.length>1).map(b=>sdOf(b.grp)).sort((a,b)=>a-b);
+    const sdMed=sds.length?sds[Math.floor(sds.length/2)]:null;
+    el('insight4').innerHTML=`<span class="mk">audit</span>
+      <p>One rung up the ladder is worth about <b>${signed(reg.b,2)} DUPR</b>, but the typical spread inside a level is
+      <b>±${sdMed!=null?fmt(sdMed,2):'—'}</b> — the rungs are narrower than the noise, so some overlap is inevitable.
+      Under the current filters, <b>${ups.length}</b> player${ups.length===1?'':'s'} rate a full band above their level
+      and <b>${downs.length}</b> a band below.</p>`;
   }
 
   function renderInsights(reg, bandStats){
