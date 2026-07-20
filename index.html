@@ -20,6 +20,8 @@
     --court:        #2f74cc;   /* primary data hue */
     --court-deep:   #1a4c8f;   /* regression / emphasis line */
     --court-wash:   rgba(47,116,204,0.12);
+    --rel-lo:       #c3cfda;   /* reliability ramp: 0% ... */
+    --rel-hi:       #17498c;   /* ... 100% */
     --amber:        #d97a24;   /* warm pole: above nominal */
     --amber-deep:   #b25f12;
     --lime:         #7f9c12;   /* ball spark — sparing */
@@ -44,6 +46,8 @@
       --court:      #4a90e6;
       --court-deep: #83b4f2;
       --court-wash: rgba(74,144,230,0.16);
+      --rel-lo:     #465362;
+      --rel-hi:     #8ab8f5;
       --amber:      #e0954f;
       --amber-deep: #f0b072;
       --lime:       #b6d431;
@@ -66,6 +70,8 @@
     --court:      #4a90e6;
     --court-deep: #83b4f2;
     --court-wash: rgba(74,144,230,0.16);
+    --rel-lo:     #465362;
+    --rel-hi:     #8ab8f5;
     --amber:      #e0954f;
     --amber-deep: #f0b072;
     --lime:       #b6d431;
@@ -112,8 +118,10 @@
     display: flex; align-items: center; gap: 6px; white-space: nowrap;
   }
   .seg button .n { font-family: var(--mono); font-size: 11px; color: var(--muted); font-weight: 500; }
+  .seg button .thr { font-family: var(--mono); font-size: 11px; color: var(--ink-2); font-weight: 500; }
   .seg button[aria-pressed="true"] { background: var(--court); color: #fff; }
   .seg button[aria-pressed="true"] .n { color: rgba(255,255,255,.8); }
+  .seg button[aria-pressed="true"] .thr { color: rgba(255,255,255,.9); }
   .seg button:focus-visible { outline: 2px solid var(--court-deep); outline-offset: 2px; }
   .toggle { font: 600 12px/1 var(--sans); color: var(--ink-2); background: var(--surface-2);
     border: 1px solid var(--hair); border-radius: 999px; padding: 8px 13px; cursor: pointer;
@@ -174,6 +182,8 @@
     font-size: 12.5px; color: var(--ink-2); }
   .legend .it { display: inline-flex; align-items: center; gap: 7px; }
   .legend .sw { width: 13px; height: 13px; border-radius: 4px; flex: none; }
+  .legend .sw.grad { width: 44px; height: 9px; border-radius: 5px;
+    background: linear-gradient(90deg, var(--rel-lo), var(--rel-hi)); }
   .legend .swline { width: 18px; height: 0; border-top: 2px solid; flex: none; }
   .legend .swline.dash { border-top-style: dashed; }
   .legend .swdot { width: 11px; height: 11px; border-radius: 50%; flex: none; box-shadow: 0 0 0 2px var(--surface); }
@@ -253,7 +263,7 @@
     .filters .lbl { display: none; }
     .seg { display: flex; flex: 1 1 100%; }
     .seg button { flex: 1; justify-content: center; padding: 7px 4px; font-size: 11.5px; gap: 4px; }
-    .seg button .n { font-size: 10px; }
+    .seg button .n, .seg button .thr { font-size: 10px; }
     .toggle { flex: 0 0 auto; }
     .hero { padding-top: 26px; }
     .kpi .k-val { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 4px; }
@@ -272,10 +282,11 @@
     </div>
     <div class="filters">
       <span class="lbl">Rating quality</span>
-      <div class="seg" id="relseg" role="group" aria-label="Filter by DUPR reliability">
-        <button data-rel="0" aria-pressed="false">All rated <span class="n" id="n0"></span></button>
-        <button data-rel="30" aria-pressed="true">Reliable <span class="n" id="n30"></span></button>
-        <button data-rel="60" aria-pressed="false">Established <span class="n" id="n60"></span></button>
+      <div class="seg" id="relseg" role="group" aria-label="Filter by DUPR reliability"
+        title="Reliability is DUPR's own 0–100% confidence in a rating — it grows as a player logs more (and more recent) matches">
+        <button data-rel="0" aria-pressed="false" title="Every matched player with a DUPR doubles rating, at any reliability">All rated <span class="n" id="n0"></span></button>
+        <button data-rel="30" aria-pressed="true" title="Only players whose DUPR reliability is 30% or higher">Reliable <span class="thr">≥30%</span> <span class="n" id="n30"></span></button>
+        <button data-rel="60" aria-pressed="false" title="Only players whose DUPR reliability is 60% or higher">Established <span class="thr">≥60%</span> <span class="n" id="n60"></span></button>
       </div>
       <button class="toggle" id="recentbtn" aria-pressed="true" title="Only players with a DUPR match in the last year">
         <span class="tk">✓</span> Active&nbsp;·&nbsp;1&nbsp;yr</button>
@@ -402,6 +413,14 @@
   // deterministic jitter in [-1,1] from a string
   const jitter = s => { let h=2166136261; for (let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);} return ((h>>>0)/4294967295)*2-1; };
   const cssv = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  // reliability color ramp: 0% → --rel-lo, 100% → --rel-hi (endpoints re-read each render for theme changes)
+  const hexRgb = h => { h=h.replace('#',''); if(h.length===3) h=h.split('').map(c=>c+c).join('');
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; };
+  let relRamp = [[0,0,0],[0,0,0]];
+  const relColor = rel => {
+    const t=Math.max(0,Math.min(1,(rel||0)/100)), [a,b]=relRamp;
+    return `rgb(${a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(',')})`;
+  };
 
   const NS='http://www.w3.org/2000/svg';
   const mk=(t,a={})=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
@@ -438,6 +457,7 @@
 
   // ---------- RENDER ----------
   function render(){
+    relRamp = [hexRgb(cssv('--rel-lo')), hexRgb(cssv('--rel-hi'))];
     const all = activeSet();
     const cnt = r => RAW.filter(d => d.rel>=r && (!recent || (d.last && d.last>=CUTOFF))).length;
     el('n0').textContent = cnt(0);
@@ -526,7 +546,7 @@
     for(const d of all){
       const i=ord[d.apex], jx=jitter(d.name)*step*0.22;
       const cx=Xi(i)+jx, cy=Y(Math.max(YMIN,Math.min(YMAX,d.dupr)));
-      const c=mk('circle',{cx,cy,r:4.4,fill:cssv('--court'),'fill-opacity':0.72,
+      const c=mk('circle',{cx,cy,r:4.4,fill:relColor(d.rel),'fill-opacity':0.88,
         stroke:cssv('--surface'),'stroke-width':1.4});
       c.style.cursor='pointer';
       const pd=d.dupr-(peerMean[d.apex]??d.dupr);
@@ -534,15 +554,16 @@
         <div class="t-row"><span>Apex level</span><b>${lblFor(d.apex)}</b></div>
         <div class="t-row"><span>DUPR doubles</span><b>${fmt(d.dupr,3)}</b></div>
         <div class="t-row"><span>vs level avg</span><b>${signed(pd,2)}</b></div>
-        <div class="t-row"><span>Reliability</span><b>${d.rel}</b></div>`;
+        <div class="t-row"><span>Reliability</span><b>${Math.round(d.rel)}%</b></div>`;
       c.addEventListener('pointermove',e=>{c.setAttribute('r',6);c.setAttribute('fill-opacity',1);showTip(tipHtml(),e);});
-      c.addEventListener('pointerleave',()=>{c.setAttribute('r',4.4);c.setAttribute('fill-opacity',0.72);hideTip();});
+      c.addEventListener('pointerleave',()=>{c.setAttribute('r',4.4);c.setAttribute('fill-opacity',0.88);hideTip();});
       dg.appendChild(c);
     }
     svg.appendChild(dg);
 
     el('leg1').innerHTML=`
-      <span class="it"><span class="swdot" style="background:var(--court)"></span>Player (jittered)</span>
+      <span class="it"><span class="swdot" style="background:${relColor(70)}"></span>Player (jittered)</span>
+      <span class="it"><span class="sw grad"></span>DUPR reliability 0→100%</span>
       <span class="it"><span class="swline" style="border-color:var(--court-deep)"></span>Actual trend</span>`;
   }
 
@@ -578,7 +599,7 @@
       for(const d of b.grp){
         const jx=jitter(d.name)*(bw*0.32);
         svg.appendChild(mk('circle',{cx:cx+jx,cy:Y(Math.max(YMIN,Math.min(YMAX,d.dupr))),r:2.6,
-          fill:cssv('--court'),'fill-opacity':0.45}));
+          fill:relColor(d.rel),'fill-opacity':0.6}));
       }
       // median label
       const ml=mk('text',{x:cx,y:Y(s.med)-9,'text-anchor':'middle',class:'a-lbl'});
@@ -602,7 +623,8 @@
 
     el('leg2').innerHTML=`
       <span class="it"><span class="sw" style="background:var(--court-wash);border:1.5px solid var(--court)"></span>Middle 50% (P25–P75)</span>
-      <span class="it"><span class="swline" style="border-color:var(--court-deep)"></span>Median</span>`;
+      <span class="it"><span class="swline" style="border-color:var(--court-deep)"></span>Median</span>
+      <span class="it"><span class="sw grad"></span>DUPR reliability 0→100%</span>`;
   }
 
   function renderOutliers(all){
@@ -659,7 +681,7 @@
         <td>${d.level}</td>
         <td class="num">${fmt(d.dupr,3)}</td>
         ${gapCell}
-        <td class="num"><span class="reltrack"><span class="relbar" style="width:${relPct}%"></span></span>${relPct}</td>
+        <td class="num"><span class="reltrack"><span class="relbar" style="width:${relPct}%;background:${relColor(d.rel)}"></span></span>${relPct}%</td>
         <td class="num">${d.sessions}</td>
         <td>${d.last||'—'}</td>
         <td><span class="conf-pill conf-${d.conf}">${d.conf}</span></td>
@@ -685,8 +707,9 @@
   function renderFoot(all){
     el('foot').innerHTML=`
       <b>What's in here.</b> ${all.length} Apex Pickleball Club players (Cedar Park, TX) matched to a real DUPR account
-      near Austin, at reliability ≥ ${minRel}${recent?` and with a DUPR match in the last year`:''}. Only <b>doubles</b>
-      DUPR is charted; singles and unrated (NR) accounts are set aside. Reliability is DUPR's own 0–100 confidence score.<br>
+      near Austin, at reliability ≥ ${minRel}%${recent?` and with a DUPR match in the last year`:''}. Only <b>doubles</b>
+      DUPR is charted; singles and unrated (NR) accounts are set aside. Reliability is DUPR's own 0–100% confidence
+      score for a rating — it grows as a player logs more (and more recent) matches.<br>
       <b>How levels are placed.</b> The ladder is drawn as evenly spaced rungs, with "+" levels sitting halfway between
       round levels. The level numbers are a coach's ladder, not DUPR values, so players are compared to their peers:
       "vs level avg" is a player's DUPR minus the mean DUPR of others at their <b>same</b> Apex level.<br>

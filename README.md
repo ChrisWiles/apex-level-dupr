@@ -14,8 +14,8 @@ Every Apex player is placed at an in-house **level** (1B, 1+, 2, 2+, 3, 3+, 4, 4
 
 The page is a single self-contained `index.html` — all data is embedded inline, no server or build step. It has:
 
-- A **reliability filter** (All rated / Reliable ≥30 / Established ≥60) and an **Active (played within 1 year)** toggle that together live-recompute every chart and stat. DUPR reliability is DUPR's own 0–100 confidence score for a rating.
-- **Correlation scatter** — DUPR against the Apex ladder, drawn as an **evenly spaced** progression of rungs (the "+" levels sit halfway between round levels), with the real trend line.
+- A **reliability filter** (All rated / Reliable ≥30% / Established ≥60%) and an **Active (played within 1 year)** toggle that together live-recompute every chart and stat. Reliability is DUPR's own 0–100% confidence in a rating — it grows as a player logs more (and more recent) matches.
+- **Correlation scatter** — DUPR against the Apex ladder, drawn as an **evenly spaced** progression of rungs (the "+" levels sit halfway between round levels), with the real trend line. Dots are shaded by DUPR reliability — pale for low-confidence ratings, deep blue for established ones.
 - **Distribution by level** — box-and-whisker of the DUPR ratings inside each Apex level, showing how much real DUPR overlaps between neighboring levels.
 - **Standouts** — players furthest from the **average DUPR of others at their own level** (not from the level number), in both directions.
 - A **sortable data table** of every matched player.
@@ -30,7 +30,7 @@ Light/dark themes, hover tooltips, keyboard-focusable, works on mobile.
 
 ## Data & method
 
-`data/player-level-vs-dupr.csv` is the full matched dataset, including the players who couldn't be matched; its `notes` column records how each name was matched to a DUPR account (Austin-metro disambiguation, name variants, tie-breaks) and the `confidence` column grades the match.
+`data/player-level-vs-dupr.csv` is the full matched dataset, including the players who couldn't be matched; its `notes` column records how each name was matched to a DUPR account (Austin-metro disambiguation, name variants, tie-breaks) and the `confidence` column grades the match. `data/player-level-vs-dupr.md` is the longer write-up of the matching method and its hand-review passes.
 
 - **Apex level** comes from the club's public PodPlay session catalog (each session carries a level band); a player's figure is the average of the sessions they attended.
 - **DUPR rating** is a live lookup of each player's DUPR doubles rating, biased to the Cedar Park / Austin area for name disambiguation. Only **doubles** ratings are charted; singles and unrated (NR) accounts are set aside.
