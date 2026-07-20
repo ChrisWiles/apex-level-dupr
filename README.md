@@ -14,7 +14,7 @@ Every Apex player is placed at an in-house **level** (1B, 1+, 2, 2+, 3, 3+, 4, 4
 
 The page is a single self-contained `index.html` — all data is embedded inline, no server or build step. It has:
 
-- A **reliability filter** (All rated / Reliable ≥30% / Established ≥60%) and an **Active (played within 1 year)** toggle that together live-recompute every chart and stat. Reliability is DUPR's own 0–100% confidence in a rating — it grows as a player logs more (and more recent) matches.
+- A **reliability filter** (All rated / Reliable ≥50% / Established ≥70% / Maxed 100%) and an **Active (played within 1 year)** toggle that together live-recompute every chart and stat. Reliability is DUPR's own 0–100% confidence in a rating — it grows as a player logs more (and more recent) matches.
 - **Correlation scatter** — DUPR against the Apex ladder, drawn as an **evenly spaced** progression of rungs (the "+" levels sit halfway between round levels), with the real trend line. Dots are shaded by DUPR reliability — pale for low-confidence ratings, deep blue for established ones.
 - **Distribution by level** — box-and-whisker of the DUPR ratings inside each Apex level, showing how much real DUPR overlaps between neighboring levels.
 - **Peer comparison** — every player listed against the **average DUPR at their own level** (not against the level number): all above-average players in one column, all below-average in the other, grouped by level.

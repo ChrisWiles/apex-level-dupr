@@ -289,8 +289,9 @@
       <div class="seg" id="relseg" role="group" aria-label="Filter by DUPR reliability"
         title="Reliability is DUPR's own 0–100% confidence in a rating — it grows as a player logs more (and more recent) matches">
         <button data-rel="0" aria-pressed="false" title="Every matched player with a DUPR doubles rating, at any reliability">All rated <span class="n" id="n0"></span></button>
-        <button data-rel="30" aria-pressed="true" title="Only players whose DUPR reliability is 30% or higher">Reliable <span class="thr">≥30%</span> <span class="n" id="n30"></span></button>
-        <button data-rel="60" aria-pressed="false" title="Only players whose DUPR reliability is 60% or higher">Established <span class="thr">≥60%</span> <span class="n" id="n60"></span></button>
+        <button data-rel="50" aria-pressed="true" title="Only players whose DUPR reliability is 50% or higher">Reliable <span class="thr">≥50%</span> <span class="n" id="n50"></span></button>
+        <button data-rel="70" aria-pressed="false" title="Only players whose DUPR reliability is 70% or higher">Established <span class="thr">≥70%</span> <span class="n" id="n70"></span></button>
+        <button data-rel="100" aria-pressed="false" title="Only players whose DUPR reliability is a full 100%">Maxed <span class="thr">100%</span> <span class="n" id="n100"></span></button>
       </div>
       <button class="toggle" id="recentbtn" aria-pressed="true" title="Only players with a DUPR match in the last year">
         <span class="tk">✓</span> Active&nbsp;·&nbsp;1&nbsp;yr</button>
@@ -430,7 +431,7 @@
   const NS='http://www.w3.org/2000/svg';
   const mk=(t,a={})=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
 
-  let minRel = 30, recent = true, peerMean = {};
+  let minRel = 50, recent = true, peerMean = {};
   const activeSet = () => RAW.filter(d => d.rel >= minRel && (!recent || (d.last && d.last >= CUTOFF)));
 
   function stats(arr){
@@ -466,8 +467,9 @@
     const all = activeSet();
     const cnt = r => RAW.filter(d => d.rel>=r && (!recent || (d.last && d.last>=CUTOFF))).length;
     el('n0').textContent = cnt(0);
-    el('n30').textContent = cnt(30);
-    el('n60').textContent = cnt(60);
+    el('n50').textContent = cnt(50);
+    el('n70').textContent = cnt(70);
+    el('n100').textContent = cnt(100);
 
     // only players on a clean ladder rung drive the level charts (drops the rare between-band case)
     const lad = all.filter(d => isLadder(d.apex));
