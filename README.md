@@ -10,7 +10,7 @@
 
 Every Apex player is placed at an in-house **level** (1B, 1+, 2, 2+, 3, 3+, 4, 4+, 5) — a coach's call, loosely aimed at DUPR. This page sets each player's Apex level against their **actual DUPR doubles rating** to see how the club's ladder lines up with the global scale.
 
-**Scope:** this covers everyone who played an Apex session in the roughly two-week booking window **and** could be matched to a DUPR account near Austin — not the full club membership.
+**Scope:** `events.json` only ever shows the current ~2-week booking window, so this dataset instead walks every commit in the scraper's history (~70 snapshots spanning three weeks) and merges every player ever seen, matched by their stable account ID rather than name. It covers everyone who's shown up in an Apex session roster across that history **and** could be matched to a DUPR account near Austin — not the full club membership.
 
 The page is a single self-contained `index.html` — all data is embedded inline, no server or build step. It has:
 
@@ -24,8 +24,8 @@ Light/dark themes, hover tooltips, keyboard-focusable, works on mobile.
 
 ## What it found
 
-- Apex level and real DUPR are **strongly correlated (r ≈ 0.87)** — the ladder ranks players well.
-- One rung up the ladder (e.g. L3 → L3+) is worth about **+0.26 DUPR** on average.
+- Apex level and real DUPR are **strongly correlated (r ≈ 0.85)** — the ladder ranks players well.
+- One rung up the ladder (e.g. L3 → L3+) is worth about **+0.25 DUPR** on average.
 - The level numbers themselves are a coach's ladder, not DUPR values, so the page doesn't compare a player to their level number — it compares them to the **other players at the same level**.
 
 ## Data & method
