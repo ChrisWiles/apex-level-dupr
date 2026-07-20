@@ -26,13 +26,13 @@ Sue Whieldon,10,3.9,3+,True,Sue Whieldon,YGWP6D,"Leander, TX, US",3.759,60.0,,0.
 Christine McCully,10,3.0,3,True,Christine  McCully,WZRN5G,"Cedar Park, TX, US",2.361,10.0,,0.0,2026-05-16,high,single Austin-metro match
 Dennis Porter,10,4.0,4,True,Dennis Porter,ZNVZ4P,"Cedar Park, TX, US",3.242,100.0,3.25,60.0,2026-07-18,high,single Austin-metro match
 Sam Ofiaza,10,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
-Daifei Li,10,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Daifei Li,10,1.0,1+,False,,,,,,,,,,"still not found after a third retry, including a search on the distinctive first name 'Daifei' alone (zero results worldwide) — likely genuinely not on DUPR"
 Chris Wiles Wiles,10,3.9,3+,True,Christopher Wiles,NRYG52,"Cedar Park, TX, US",3.351,100.0,3.799,1.0,2026-07-11,high,DUPR excludes your own logged-in account from search results; filled in directly from your profile page.
 Ravi Sherom,10,3.9,3+,True,Ravi Sheromani,XON7D4,"Leander, TX, US",3.282,40.0,,0.0,2026-06-28,high,single Austin-metro match
 Marion Serelis,10,2.0,2,True,Marion Serelis,VXXNV7,"Austin, TX, US",2.331,90.0,,0.0,2026-04-29,high,single Austin-metro match
 Penny Goh,10,2.0,2,True,Penny Goh,J5NQ74,"Williamson County, TX, US",2.23,1.0,,0.0,2025-09-06,high,single Austin-metro match
 Ryan Church,10,2.0,2,True,Ryan Church,6N9XV0,"Leander, TX, US",,,,,,high,single Austin-metro match
-Toni Antov,9,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Toni Antov,9,2.0,2,False,,,,,,,,,,"still not found after a third retry, including a worldwide search on the surname alone (zero results) — likely genuinely not on DUPR"
 Bojidar (Buddy) Kraptchev,9,2.9,2+,True,Bojidar Kraptchev,X0DZ95,"Austin, TX, US",2.863,30.0,,0.0,2026-06-28,medium,single Austin-metro match (via variant 'Bojidar Kraptchev')
 Y Lu,9,2.0,2,True,Yvonne Lu,RZP9WZ,"Austin, TX, US",2.787,1.0,,0.0,2024-07-28,medium,tie-break among 4 Austin-metro candidates by rating
 Alexandra Klose,9,2.0,2,True,Alexandra Klose,7ZP0D9,"Leander, TX, US",2.792,60.0,,0.0,2026-07-18,high,single Austin-metro match
@@ -61,7 +61,7 @@ Biswajit Swain,7,3.9,3+,True,Biswajit Swain,94MYYK,"Cedar Park, TX, US",3.266,1.
 Brian Henry,7,2.0,2,True,Brian Henry,JZROEW,"Austin, TX, US",,,,,,high,single Austin-metro match
 Paul Escobedo,7,2.9,2+,True,Paul Escobedo,J5PGVJ,"Georgetown, TX, US",2.522,10.0,,0.0,2026-04-26,high,single Austin-metro match
 Ruben Reyes,7,4.0,4,True,Ruben Reyes,3L5JZ1,"Cedar Park, TX, US",3.642,100.0,,0.0,2026-05-09,high,single Austin-metro match
-camilleo .,7,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+camilleo .,7,1.0,1+,False,,,,,,,,,,"still not found after a third retry, including a worldwide search on 'Camilleo' alone (zero results) — likely genuinely not on DUPR, possibly a placeholder/incomplete sign-up name"
 Jen Wang,7,3.0,3,True,Jennifer Wang,VX60GE,"Cedar Park, TX, US",3.201,100.0,3.201,1.0,2026-07-14,high,single Austin-metro match
 Windy Smith,7,3.0,3,True,Windy Smith,O69EOL,"Round Rock, TX, US",2.91,100.0,2.161,60.0,2026-07-14,medium,tie-break among 2 Austin-metro candidates by rating
 Mike Wong,7,3.0,3,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
@@ -75,10 +75,10 @@ Kelly Walenta,6,2.0,2,True,Kelly  Walenta,557M5P,"Leander, TX, US",2.443,100.0,,
 Denni Northway,6,3.0,3,True,Denni Northway,YGLD6K,"Round Rock, TX, US",2.989,90.0,,0.0,2026-05-07,high,single Austin-metro match
 Brian Hundsdorfer,6,3.0,3,True,Brian Hundsdorfer,E9ENDJ,"Cedar Park, TX, US",3.255,100.0,,0.0,2026-06-13,high,single Austin-metro match
 David Knoll,6,3.0,3,True,David Knoll,6NZQGG,"Leander, TX, US",,,,,,high,single Austin-metro match
-Alfred Zhong,6,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Alfred Zhong,6,2.0,2,False,,,,,,,,,,"still not found after a third retry: 'Sam Zhong' and 'yu zhong' both play 17mi away in Austin, TX — same surname locally, but neither first name lines up with Alfred, so not treated as the same person"
 Matt Hamilton,6,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
 Wayne Smith,6,3.0,3,True,Wayne Smith,9PGDNR,"Austin, TX, US",3.386,1.0,,0.0,2024-01-14,high,single Austin-metro match
-Jay Quiocho,6,3.0,3,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Jay Quiocho,6,3.0,3,False,,,,,,,,,,"still not found after a third retry: a 'Richard Quiocho' plays 17mi away in Austin, TX — same rare surname locally, but a different first name with no nickname link, so not treated as the same person"
 Huong Dang,6,3.0,3,True,Huong Dang,E9RZMV,"Austin, TX, US",3.707,20.0,,0.0,2026-04-25,high,single Austin-metro match
 Harry Rochani,6,3.9,3+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
 Belle Garcia,6,4.0,4,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
@@ -118,7 +118,7 @@ Shun Huang,4,4.0,4,False,,,,,,,,,,"not found on DUPR near Austin, even after try
 David Anderson,4,4.0,4,True,David Anderson,YG2PZG,"Leander, TX, US",3.874,70.0,,0.0,2026-05-16,high,single Austin-metro match
 Paul Joung,4,4.0,4,True,Paul Joung,MEPM6D,"Austin, TX, US",3.753,100.0,,0.0,2026-05-02,high,single Austin-metro match
 Evan Shuvo,4,4.9,4+,True,Evan Shuvo,1Q5DN3,"Leander, TX, US",4.006,100.0,,0.0,2026-07-12,high,single Austin-metro match
-Azusa Manabe,4,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Azusa Manabe,4,1.0,1+,False,,,,,,,,,,"still not found after a third retry; the only 'Manabe' accounts worldwide are in Arizona and Japan, none locally"
 Amy Mullins,4,2.0,2,True,Amy mullins,L54EZK,"Williamson County, TX, US",,,,,,high,single Austin-metro match
 Steve  Lau,4,3.0,3,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
 Malee Hundsdorfer,4,2.0,2,True,Malee Hundsdorfer,GW0WYM,"Cedar Park, TX, US",2.426,100.0,,0.0,2026-06-08,high,single Austin-metro match
@@ -130,7 +130,7 @@ Vishal Raghuvanshi,4,3.0,3,True,Vishal Raghuvanshi,0PR9N4,"Leander, TX, US",3.30
 Amanda Reese,4,3.0,3,True,Amanda Reese,592KDP,"Cedar Park, TX, US",3.093,100.0,2.772,10.0,2026-07-13,high,single Austin-metro match
 Sol Cowes,4,3.0,3,True,SolBrett Cowes,PK7D2M,,3.394,100.0,,0.0,2026-06-28,high,single Austin-metro match
 Jen Riley,4,3.9,3+,True,Jennifer Riley,X2EV47,"Austin, TX, US",3.331,60.0,3.452,1.0,2025-10-19,high,single Austin-metro match
-Bungbone Naugle,4,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Bungbone Naugle,4,2.0,2,False,,,,,,,,,,"still not found after a third retry (worldwide search, rare-surname isolation): a 'Mike Naugle' plays 8mi away in Round Rock, TX — likely a family member given the rare surname, but a different first name, so not treated as the same person"
 Dani Hunter,4,4.0,4,True,Dani Hunter,NYQOP7,"Austin, TX, US",3.814,100.0,,0.0,2026-04-25,high,single Austin-metro match
 Ryan Garoogian,4,3.9,3+,True,Ryan Garoogian,MP0D5D,"Austin, TX, US",3.771,50.0,,0.0,2026-03-25,high,single Austin-metro match
 Jin H Liu,4,3.9,3+,True,Jinhong Liu,6P6WZ0,"Austin, TX, US",2.229,70.0,,0.0,2026-04-19,medium,"recovered on deeper hand-reviewed retry: middle initial matches the DUPR account's compound given name (Jinhong), exact surname match"
@@ -187,7 +187,7 @@ Steve Bronson,2,3.0,3,True,Steve Bronson,30KZDG,"Georgetown, TX, US",3.167,80.0,
 Rhonda Jenkins,2,2.9,2+,True,RHONDA JENKINS,3LZR5Z,"Austin, TX, US",2.656,50.0,,0.0,2026-02-19,high,single Austin-metro match
 Robert Weber,2,4.0,4,True,Robert Weber,3Y6MVE,"Cedar Park, TX, US",3.793,100.0,,0.0,2026-05-23,high,single Austin-metro match
 Aryan M,2,5.0,5,True,Aryan Malhotra,0QWPNQ,"Leander, TX, US",3.906,100.0,4.19,100.0,2026-07-18,low,"tie-break among 2 Austin-metro candidates by rating; original name had a bare initial, treat match as uncertain"
-Kevin Vorabout,2,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Kevin Vorabout,2,1.0,1+,False,,,,,,,,,,"still not found after a third retry; the only similar surname ('Vorabouth') worldwide is a New Jersey family, no local presence"
 Janet Snow,2,0.5,1B,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
 Joyce Gibson,2,2.9,2+,True,Joyce Gibson,5EEMKR,"Leander, TX, US",2.796,100.0,,0.0,2026-06-14,high,single Austin-metro match
 Nina Salta,2,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
@@ -206,7 +206,7 @@ Andy Steinberg,2,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after
 Veronica Ochoa,2,2.9,2+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
 Kimberly Steadman,2,4.0,4,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
 Kit Harper,2,4.9,4+,True,Kit Harper,R8J5M8,"Cedar Park, TX, US",5.148,10.0,,0.0,2022-03-26,high,single Austin-metro match
-Dirk Lammerts,2,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Dirk Lammerts,2,1.0,1+,False,,,,,,,,,,"still not found after a third retry, including a worldwide search on the surname alone (zero results) — likely genuinely not on DUPR"
 Erin Hernandez,2,3.9,3+,True,Erin Hernandez,8JMQ9O,"Leander, TX, US",3.699,100.0,,0.0,2026-05-09,high,single Austin-metro match
 Robin Reich,2,3.0,3,True,Robin Reich,4LK4M6,"Round Rock, TX, US",3.152,70.0,,0.0,2026-05-16,high,single Austin-metro match
 Dianne Hall,2,2.0,2,True,Dianne Hall,G0XJ5G,"Cedar Park, TX, US",2.244,100.0,,0.0,2026-07-12,high,single Austin-metro match
@@ -222,7 +222,7 @@ John Cogdell,1,3.9,3+,True,John Cogdell,76ZZ24,"Austin, TX, US",,,,,,high,single
 Ling Wang,1,4.0,4,True,Ling Wang,KXP60Q,"Austin, TX, US",3.636,1.0,3.317,10.0,2025-02-16,high,single Austin-metro match
 Maxwell Burgess,1,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
 Diana Sudduth,1,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
-Bruce Cong,1,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Bruce Cong,1,2.0,2,False,,,,,,,,,,"still not found after a third retry: a 'Cong Hiep Hoang' plays 17mi away in Austin, TX — 'Cong' may be part of his birth name with 'Bruce' as an informal nickname, or a family member, but neither is confirmed so left unmatched rather than guessed"
 Kristy Cravey,1,2.0,2,True,Kristy Cravey,Z9RXMM,,2.629,1.0,,0.0,2024-04-04,low,only DUPR account worldwide with this exact name; location unconfirmed
 Adrian  Godoy,1,2.0,2,True,Adrian Godoy,4Q60KK,"Leander, TX, US",2.738,70.0,2.194,30.0,2026-07-18,medium,single Austin-metro match (via variant 'Adrian Godoy')
 Sandy  Ross,1,2.0,2,True,Sandy Ross,VXZ0G5,"Cedar Park, TX, US",2.943,90.0,,0.0,2026-05-11,medium,single Austin-metro match (via variant 'Sandy Ross')
@@ -260,7 +260,7 @@ Jessica Huskisson,1,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even a
 Toby Stevenson,1,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
 Justin Fosbury,1,3.9,3+,True,Justin Fosbury,7D5ZK5,"Leander, TX, US",3.508,100.0,3.37,20.0,2026-07-12,high,single Austin-metro match
 Michelle Yu,1,2.0,2,True,Michelle Yu,2ZYG99,"Austin, TX, US",,,,,,high,single Austin-metro match
-Raajeev Kalyan,1,3.0,3,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Raajeev Kalyan,1,3.0,3,False,,,,,,,,,,"still not found after a third retry: a 'Kalyan Siruvuri' plays 16mi away, but 'Kalyan' is his first name there (a Telugu/Kannada naming-order difference), not a real surname match, so not treated as the same person"
 Kaylyn Levine,1,4.0,4,True,Kaylyn Levine,JJMD9O,"Georgetown, TX, US",3.829,80.0,,0.0,2026-04-25,high,single Austin-metro match
 Chris Wales,1,3.9,3+,True,Chris Wales,V7R4LP,"Cedar Park, TX, US",4.002,50.0,,0.0,2025-09-27,high,single Austin-metro match
 Teri Citterman,1,3.9,3+,True,Teri Citterman,JJDEXM,"Coco, Provincia de Guanacaste, CR",3.981,1.0,,0.0,2024-11-10,low,only DUPR account worldwide with this exact name; location unconfirmed
@@ -272,9 +272,9 @@ Akash Bhakta,1,4.0,4,True,Akash Bhakta,354YR8,"Austin, TX, US",4.154,30.0,3.895,
 Patrick Bohrer,1,2.9,2+,True,Patrick Bohrer,G0WJ7X,,,,,,,low,only DUPR account worldwide with this exact name; location unconfirmed
 Suzanne brown,1,2.0,2,True,Suzanne brown,1NY673,"Austin, TX, US",3.161,10.0,,0.0,2025-03-27,high,single Austin-metro match
 Jessica Wong,1,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
-Luciana Savioli,1,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Luciana Savioli,1,2.0,2,False,,,,,,,,,,"still not found after a third retry; the only 'Savioli' worldwide is in Italy, no US presence at all"
 Hong Yang,1,2.0,2,True,Hong yang,MPPP0L,"Austin, TX, US",,,,,,high,single Austin-metro match
-Luciana Ladeira,1,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Luciana Ladeira,1,2.0,2,False,,,,,,,,,,"still not found after a third retry, including a worldwide search on the surname alone (zero results) — likely genuinely not on DUPR"
 Jennifer Gardner,1,1.0,1+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
 Laura Visser,1,5.0,5,True,Laura visser,DWRYE4,"Pflugerville, TX, US",4.17,80.0,,0.0,2026-05-03,high,single Austin-metro match
 John Hancock,1,4.0,4,True,John Hancock,KXEN76,"Cedar Park, TX, US",3.697,40.0,,0.0,2025-09-25,medium,tie-break among 2 Austin-metro candidates by rating

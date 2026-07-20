@@ -13,6 +13,7 @@ _Generated 2026-07-20 from `events.json` (Apex Pickleball Clubs, Cedar Park TX) 
 - **Hand-reviewed pass**: every `low`-confidence match and every "not found" case was manually re-checked against the raw candidate list, not just the automated tie-break. This fixed mislabeled matches (a short-but-real surname like "Yu", or a `Jr` suffix, had been wrongly flagged as an uncertain fragment), recovered a handful of unclaimed/no-location DUPR profiles that are the only account worldwide with that exact name, filled in the account owner's own profile (DUPR excludes your own logged-in account from its own search results), and walked back two guesses (`SR T`, `J O`) to *not found* because the closest automatic "match" didn't actually resemble the name once inspected directly.
 - **Deeper retry pass**: every remaining "not found" player was retried with name-order swaps, nickname expansions, hyphenated-name splits, and a wider search radius. Out of 88 retried, this only turned up 4 trustworthy new matches (both the first *and* last name lined up, via an exact match or a real nickname/hyphen split) — the rest of the retry's "hits" matched on only a first *or* last name and turned out to be a completely different real person on inspection, so they were rejected rather than reported as a match.
 - **Second retry pass**: the remaining 85 "not found" players were retried again with a larger hand-built nickname/misspelling dictionary and a search radius extended to anywhere on DUPR (not just Texas), flagging only cases where both the first *and* last name lined up (exactly or via a real nickname). 21 names turned up *some* worldwide match, but almost all were extremely common names (Mike Wong, Steven Smith, Michael Gibson, Jennifer Gardner…) with dozens of candidates scattered across states and countries and no standout nearby — those were left as not found rather than guessed. Only 2 survived scrutiny: one exact, distinctive full-name match far outside the metro area, and one very common name whose only nearby candidate has no rated DUPR yet. Both are flagged `low` confidence with the reasoning spelled out in their notes.
+- **Third retry pass**: the remaining 83 were retried a third time, up to ~8-10 search variants each (nicknames, misspellings, hyphen splits, name-order swaps, plus a search on the rare surname or first name alone where one existed). This turned up **zero** new confident matches. What it did surface, and rejected: a handful of cases (Bruce Cong, Jay Quiocho, Alfred Zhong, Bungbone Naugle) where someone with the *same rare surname* plays right in the Austin/Round Rock area — almost certainly a family member who also plays at Apex — but with a *different first name* and no nickname link, so presenting them as the same person would misattribute a stranger's rating. Several other names (Daifei Li, Dirk Lammerts, Luciana Ladeira, Toni Antov, camilleo., Azusa Manabe, Kevin Vorabout) came back with zero hits even on a worldwide search of just the distinctive name fragment, meaning they most likely genuinely aren't on DUPR at all. The remaining handful (SR T, J O, Bhasker M, Praveen M, Alanna V) have only initials on file — no amount of retrying manufactures an identity from two letters, so these are left as unresolved rather than guessed at.
 
 ## Summary
 
@@ -277,20 +278,20 @@ Sorted by number of Apex sessions attended (most active first). Reliability is D
 | Robin Felgate | 11 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | John B Mulloy | 11 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Sam Ofiaza | 10 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Daifei Li | 10 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Toni Antov | 9 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| Daifei Li | 10 | 1+ | still not found after a third retry, including a search on the distinctive first name 'Daifei' alone (zero results worldwide) — likely genuinely not on DUPR |
+| Toni Antov | 9 | 2 | still not found after a third retry, including a worldwide search on the surname alone (zero results) — likely genuinely not on DUPR |
 | Ted Gilkey | 8 | 2+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Adi Gupta | 8 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Juliana Hall | 8 | 1B | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Olivia S Yang | 7 | 4 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| camilleo . | 7 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| camilleo . | 7 | 1+ | still not found after a third retry, including a worldwide search on 'Camilleo' alone (zero results) — likely genuinely not on DUPR, possibly a placeholder/incomplete sign-up name |
 | Mike Wong | 7 | 3 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Amanda Montero | 7 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Ning Shaw | 6 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | SR T | 6 | 4+ | too ambiguous to identify (only initials on file); the closest automatic guess did not actually resemble the name and was dropped on manual review |
-| Alfred Zhong | 6 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| Alfred Zhong | 6 | 2 | still not found after a third retry: 'Sam Zhong' and 'yu zhong' both play 17mi away in Austin, TX — same surname locally, but neither first name lines up with Alfred, so not treated as the same person |
 | Matt Hamilton | 6 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Jay Quiocho | 6 | 3 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| Jay Quiocho | 6 | 3 | still not found after a third retry: a 'Richard Quiocho' plays 17mi away in Austin, TX — same rare surname locally, but a different first name with no nickname link, so not treated as the same person |
 | Harry Rochani | 6 | 3+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Belle Garcia | 6 | 4 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Genie Duvall | 6 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
@@ -302,9 +303,9 @@ Sorted by number of Apex sessions attended (most active first). Reliability is D
 | Sonie Golden | 4 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | John Tao | 4 | 3 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Shun Huang | 4 | 4 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Azusa Manabe | 4 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| Azusa Manabe | 4 | 1+ | still not found after a third retry; the only 'Manabe' accounts worldwide are in Arizona and Japan, none locally |
 | Steve  Lau | 4 | 3 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Bungbone Naugle | 4 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| Bungbone Naugle | 4 | 2 | still not found after a third retry (worldwide search, rare-surname isolation): a 'Mike Naugle' plays 8mi away in Round Rock, TX — likely a family member given the rare surname, but a different first name, so not treated as the same person |
 | Michael Gibson | 4 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Miguel Mercado | 4 | 3 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Matt Laakso | 3 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
@@ -314,7 +315,7 @@ Sorted by number of Apex sessions attended (most active first). Reliability is D
 | Olga Panskaya | 2 | 1B | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | SUSAN  Dorsey | 2 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | William  Lindsay | 2 | 3+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Kevin Vorabout | 2 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| Kevin Vorabout | 2 | 1+ | still not found after a third retry; the only similar surname ('Vorabouth') worldwide is a New Jersey family, no local presence |
 | Janet Snow | 2 | 1B | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Nina Salta | 2 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Parker Speich | 2 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
@@ -324,13 +325,13 @@ Sorted by number of Apex sessions attended (most active first). Reliability is D
 | Andy Steinberg | 2 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Veronica Ochoa | 2 | 2+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Kimberly Steadman | 2 | 4 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Dirk Lammerts | 2 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| Dirk Lammerts | 2 | 1+ | still not found after a third retry, including a worldwide search on the surname alone (zero results) — likely genuinely not on DUPR |
 | Kim Phan | 1 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Alexis Gant | 1 | 0.75 (between L1B and L1+) | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | J O | 1 | 1+ | too ambiguous to identify (only initials on file); the closest automatic guess did not actually resemble the name and was dropped on manual review |
 | Maxwell Burgess | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Diana Sudduth | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Bruce Cong | 1 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| Bruce Cong | 1 | 2 | still not found after a third retry: a 'Cong Hiep Hoang' plays 17mi away in Austin, TX — 'Cong' may be part of his birth name with 'Bruce' as an informal nickname, or a family member, but neither is confirmed so left unmatched rather than guessed |
 | Meredith Putman | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Brian Escochea | 1 | 2+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Rosa Benner | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
@@ -338,11 +339,11 @@ Sorted by number of Apex sessions attended (most active first). Reliability is D
 | May Dunn | 1 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Jessica Huskisson | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Toby Stevenson | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Raajeev Kalyan | 1 | 3 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| Raajeev Kalyan | 1 | 3 | still not found after a third retry: a 'Kalyan Siruvuri' plays 16mi away, but 'Kalyan' is his first name there (a Telugu/Kannada naming-order difference), not a real surname match, so not treated as the same person |
 | Robin Shaw | 1 | 1B | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Jessica Wong | 1 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Luciana Savioli | 1 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Luciana Ladeira | 1 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
+| Luciana Savioli | 1 | 2 | still not found after a third retry; the only 'Savioli' worldwide is in Italy, no US presence at all |
+| Luciana Ladeira | 1 | 2 | still not found after a third retry, including a worldwide search on the surname alone (zero results) — likely genuinely not on DUPR |
 | Jennifer Gardner | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Steve Sherrill | 1 | 1B | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Dawn Sherrill | 1 | 1B | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
