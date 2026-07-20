@@ -262,6 +262,7 @@ Sorted by number of Apex sessions attended (most active first). Reliability is D
 | Lisa Prien | 1 | 2 | Lisa Prien | KDWDQY | Leander, TX, US | 2.452 | 100 | — | 0 | 2026-07-14 | high | single Austin-metro match |
 | valeri tate | 1 | 2 | Valeri  Tate | 55456L | Cedar Park, TX, US | — | — | — | — | — | low | ambiguous among 2 Austin-metro candidates (no ratings to tie-break), picked nearest |
 | Andrew Solis | 1 | 3 | Andrew Jay Solis | 8K75O7 | Austin, TX, US | 3.411 | 100 | — | 0 | 2026-06-28 | high | single Austin-metro match |
+| Zachary Ricketson | 1 | 4 | Zachary  Ricketson | KDKLN7 | Williamson County, TX, US | 3.763 | 100 | — | 0 | 2026-07-11 | high | added manually from a user-supplied DUPR profile link |
 
 ## Not found on DUPR
 
