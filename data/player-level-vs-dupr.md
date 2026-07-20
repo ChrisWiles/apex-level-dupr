@@ -12,16 +12,17 @@ _Generated 2026-07-20 from `events.json` (Apex Pickleball Clubs, Cedar Park TX) 
 - Players with no DUPR account findable near Austin (private, unrated, or truly not on DUPR) are listed as **not found** rather than guessed.
 - **Hand-reviewed pass**: every `low`-confidence match and every "not found" case was manually re-checked against the raw candidate list, not just the automated tie-break. This fixed mislabeled matches (a short-but-real surname like "Yu", or a `Jr` suffix, had been wrongly flagged as an uncertain fragment), recovered a handful of unclaimed/no-location DUPR profiles that are the only account worldwide with that exact name, filled in the account owner's own profile (DUPR excludes your own logged-in account from its own search results), and walked back two guesses (`SR T`, `J O`) to *not found* because the closest automatic "match" didn't actually resemble the name once inspected directly.
 - **Deeper retry pass**: every remaining "not found" player was retried with name-order swaps, nickname expansions, hyphenated-name splits, and a wider search radius. Out of 88 retried, this only turned up 4 trustworthy new matches (both the first *and* last name lined up, via an exact match or a real nickname/hyphen split) — the rest of the retry's "hits" matched on only a first *or* last name and turned out to be a completely different real person on inspection, so they were rejected rather than reported as a match.
+- **Second retry pass**: the remaining 85 "not found" players were retried again with a larger hand-built nickname/misspelling dictionary and a search radius extended to anywhere on DUPR (not just Texas), flagging only cases where both the first *and* last name lined up (exactly or via a real nickname). 21 names turned up *some* worldwide match, but almost all were extremely common names (Mike Wong, Steven Smith, Michael Gibson, Jennifer Gardner…) with dozens of candidates scattered across states and countries and no standout nearby — those were left as not found rather than guessed. Only 2 survived scrutiny: one exact, distinctive full-name match far outside the metro area, and one very common name whose only nearby candidate has no rated DUPR yet. Both are flagged `low` confidence with the reasoning spelled out in their notes.
 
 ## Summary
 
-- **308** players had an Apex rating on file.
+- **309** players had an Apex rating on file.
 
-- **191** were matched to a DUPR account with a numeric doubles rating — this is the chartable set.
+- **193** were matched to a DUPR account with a numeric doubles rating — this is the chartable set.
 
-- **32** matched a DUPR account, but that account has no doubles rating yet (`NR`).
+- **33** matched a DUPR account, but that account has no doubles rating yet (`NR`).
 
-- **85** had no findable DUPR account near Austin, even after the deeper retry pass.
+- **83** had no findable DUPR account near Austin, even after two rounds of deeper retries.
 
 - Average (Apex − DUPR) = **-0.06**. 57 players are rated **≥0.3 higher** on Apex than on DUPR, 64 are rated **≥0.3 lower**, and 70 are within ±0.3 (roughly in line).
 
@@ -263,6 +264,8 @@ Sorted by number of Apex sessions attended (most active first). Reliability is D
 | valeri tate | 1 | 2 | Valeri  Tate | 55456L | Cedar Park, TX, US | — | — | — | — | — | low | ambiguous among 2 Austin-metro candidates (no ratings to tie-break), picked nearest |
 | Andrew Solis | 1 | 3 | Andrew Jay Solis | 8K75O7 | Austin, TX, US | 3.411 | 100 | — | 0 | 2026-06-28 | high | single Austin-metro match |
 | Zachary Ricketson | 1 | 4 | Zachary  Ricketson | KDKLN7 | Williamson County, TX, US | 3.763 | 100 | — | 0 | 2026-07-11 | high | added manually from a user-supplied DUPR profile link |
+| Noah Welker | 3 | 4+ | Noah  Welker | RW4QMM | Lubbock, TX, US | 4.276 | 20 | 4.603 | 30 | 2026-02-20 | low | recovered on a second, deeper retry: only exact-name match found anywhere; it's far from Austin (Lubbock, TX, ~5hr away), so treat as uncertain -- no closer or more plausible candidate exists though |
+| Steven Smith | 1 | 3 | Steve Smith | W6V6JL | Austin, TX, US | — | — | — | — | — | low | recovered on a second, deeper retry: closest candidate by far (17mi) among many same-name matches worldwide, but the account has no rated doubles/singles yet and 'Smith' is too common to be fully certain |
 
 ## Not found on DUPR
 
@@ -305,7 +308,6 @@ Sorted by number of Apex sessions attended (most active first). Reliability is D
 | Michael Gibson | 4 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Miguel Mercado | 4 | 3 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Matt Laakso | 3 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Noah Welker | 3 | 4+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | John McIntyre | 3 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Lacie henry | 3 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Robin Scott | 2 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
@@ -329,7 +331,6 @@ Sorted by number of Apex sessions attended (most active first). Reliability is D
 | Maxwell Burgess | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Diana Sudduth | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Bruce Cong | 1 | 2 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
-| Steven Smith | 1 | 3 | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Meredith Putman | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Brian Escochea | 1 | 2+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |
 | Rosa Benner | 1 | 1+ | not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search |

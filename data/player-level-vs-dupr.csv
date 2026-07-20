@@ -151,7 +151,7 @@ Alice Lequin,3,2.9,2+,True,Alice Lequin,VLXYQ6,"Leander, TX, US",2.792,20.0,,0.0
 Archie Imperial,3,4.0,4,True,Archie Imperial,ZNK6MW,"Cedar Park, TX, US",3.066,60.0,,0.0,2026-05-02,high,single Austin-metro match
 Matt Laakso,3,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
 Lori Gibbens,3,4.0,4,True,Lori Gibbens-Bell,8E9QQW,"Leander, TX, US",4.222,30.0,,0.0,2025-06-09,high,single Austin-metro match
-Noah Welker,3,4.9,4+,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Noah Welker,3,4.9,4+,True,Noah  Welker,RW4QMM,"Lubbock, TX, US",4.276,20.0,4.603,30.0,2026-02-20,low,"recovered on a second, deeper retry: only exact-name match found anywhere; it's far from Austin (Lubbock, TX, ~5hr away), so treat as uncertain -- no closer or more plausible candidate exists though"
 Austin Steadman,3,4.9,4+,True,Austin Steadman,GG5REG,"Leander, TX, US",3.769,100.0,,0.0,2026-07-12,high,single Austin-metro match
 Bryson Renouard,3,5.0,5,True,Bryson Renouard,O6ELLP,"Austin, TX, US",3.835,70.0,3.6,40.0,2026-02-01,high,single Austin-metro match
 TUNG GIANG,3,5.0,5,True,Tung Giang,XJNEZR,"Cedar Park, TX, US",4.133,1.0,,0.0,2025-02-03,high,single Austin-metro match
@@ -226,7 +226,7 @@ Bruce Cong,1,2.0,2,False,,,,,,,,,,"not found on DUPR near Austin, even after try
 Kristy Cravey,1,2.0,2,True,Kristy Cravey,Z9RXMM,,2.629,1.0,,0.0,2024-04-04,low,only DUPR account worldwide with this exact name; location unconfirmed
 Adrian  Godoy,1,2.0,2,True,Adrian Godoy,4Q60KK,"Leander, TX, US",2.738,70.0,2.194,30.0,2026-07-18,medium,single Austin-metro match (via variant 'Adrian Godoy')
 Sandy  Ross,1,2.0,2,True,Sandy Ross,VXZ0G5,"Cedar Park, TX, US",2.943,90.0,,0.0,2026-05-11,medium,single Austin-metro match (via variant 'Sandy Ross')
-Steven Smith,1,3.0,3,False,,,,,,,,,,"not found on DUPR near Austin, even after trying nickname/hyphen/word-order variants and an extended-radius search"
+Steven Smith,1,3.0,3,True,Steve Smith,W6V6JL,"Austin, TX, US",,,,,,low,"recovered on a second, deeper retry: closest candidate by far (17mi) among many same-name matches worldwide, but the account has no rated doubles/singles yet and 'Smith' is too common to be fully certain"
 Jeremy Craig,1,5.0,5,True,Jeremy Craig,DNEN5X,"Jackson, TN, US",3.703,100.0,3.415,10.0,2026-06-15,low,only DUPR account worldwide with this exact name; location unconfirmed
 Jeff Nowotny,1,5.0,5,True,Jeff Nowotny,YNJEJE,"Austin, TX, US",4.587,1.0,,0.0,2025-01-31,high,single Austin-metro match
 Rolando Fuertes Jr,1,1.0,1+,True,Rolando Fuertes Jr,XKZ567,"Cedar Park, TX, US",2.687,100.0,,0.0,2026-01-20,high,single Austin-metro match
